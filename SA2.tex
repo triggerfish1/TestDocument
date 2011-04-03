@@ -1,0 +1,93 @@
+%!TEX TS-program =  pdflatex
+\documentclass[a4paper,12pt,twoside]{scrreprt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% text encoding
+%
+%For Macs use
+%    \usepackage[applemac]{inputenc}
+%For Unix Latin1 use
+    \usepackage[latin1]{inputenc}
+%For PC Codepage 850 use
+%    \usepackage[cp850]{inputenc}
+%For PC Codepage 437 use
+%    \usepackage[cp437]{inputenc}
+%For Windows ANSI use
+%    \usepackage[ansinew]{inputenc}
+%For Unicode use ???
+%    \usepackage[utf8]{inputenc}
+%\usepackage[applemac]{inputenc}
+
+\usepackage[T1]{fontenc}
+\usepackage{ngerman,a4wide}
+\usepackage{longtable}
+\usepackage{color,listings,multicol}
+\usepackage{float}
+\usepackage[format=hang]{caption}
+
+%usepackage[caption = false,format=hang]{subfig}
+\captionsetup[subfloat]{justification=RaggedRight}
+\usepackage[format=hang]{subfig}
+%\captionsetup{format=hang}
+\usepackage[numbers]{natbib}
+
+%für eps-Graphiken
+%\DeclareGraphicsExtensions{.png,.pdf,.jpg,.mps,.eps}
+%\DeclareGraphicsRule{.eps}{mps}{*}{}
+\setlength{\headheight}{15pt}
+\bibliographystyle{natdin}  % put at beginning of document
+%\usepackage{epspdfconversion}
+%\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\setlength{\parindent}{0cm}
+
+
+\author{Markus Sons}
+
+\title{Implementierung eines Schnitt-Algorithmus für die Level-Set-Methode und Untersuchung der kollabierenden Wassersäule mit XFEM}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Headings
+\pagestyle{fancy}
+\fancyhead{}  \fancyfoot{} % clear all fields
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\space\space #1}}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\rm \rightmark}
+\fancyhead[RE]{\rm \leftmark}
+\fancyfoot[C]{\thepage}
+
+\newpage
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Einleitung}
+
+\chapter{Grundlagen}
+
+Das ist nur ein kleiner Test damit ich das Programm verstehe.
+
+Schifffahrt
+
+\section{Fluid}
+
+Kleiner Test
+
+\section{Finite Elemente Methode}
+
+\bibliography{bibData}
+
+\end{document}
+
