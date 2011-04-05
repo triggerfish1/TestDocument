@@ -24,6 +24,8 @@
 \usepackage{float}
 \usepackage[format=hang]{caption}
 
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+
 %usepackage[caption = false,format=hang]{subfig}
 \captionsetup[subfloat]{justification=RaggedRight}
 \usepackage[format=hang]{subfig}
@@ -34,7 +36,7 @@
 %\DeclareGraphicsExtensions{.png,.pdf,.jpg,.mps,.eps}
 %\DeclareGraphicsRule{.eps}{mps}{*}{}
 \setlength{\headheight}{15pt}
-\bibliographystyle{natdin}  % put at beginning of document
+%\bibliographystyle{natdin}  % put at beginning of document
 %\usepackage{epspdfconversion}
 %\usepackage{hyperref}
 \usepackage{fancyhdr}
@@ -77,9 +79,10 @@
 
 \chapter{Grundlagen}
 
-Das ist nur ein kleiner Test damit ich das Programm verstehe.
-
 \section{Navier-Stokes Gleichung}
+
+
+
 \subsection{Grundgleichung}
 % Navier-Stokes-Gleichung (Herleitung?)
 
@@ -87,18 +90,49 @@ Das ist nur ein kleiner Test damit ich das Programm verstehe.
 % Besonderheiten der Zweiphasenströmung (-> warum XFEM?)
 
 
-\section{Interface Beschreibung}
-\subsection{Interface Tracking}
-% ganz kurz 
-\subsection{Interface Capturing}
+\section{Level-Set-Methode}
+Zur Beschreibung des Interfaces kann entweder die "'Interface Tracking'"- oder die "'Interface Capturing'"-Methode verwendet werden. Bei der Interface-Tracking-Methode wird das Interface explizit durch die Vernetzung beschrieben. Das Netz wird mit dem Interface weiterbewegt. Ein Problem dieser Methode ist, dass Topologie-Änderungen wie z.B. das Rekombinieren von zwei Blasen zu einer Größeren nicht dargestellt werden können.\\
+
+Beim "Interface Capturing" hingegen wird das Interface implizit beschrieben. Im vorliegenden Fall wird die Level-Set-Methode verfolgt, bei der das Interface durch die Null-Iso-Linie der Level-Set-Funktion beschrieben wird. Zusätzlich erfüllt die Level-Set-Funktion zusätzlich die "signed distance property", der Betrag der Funktion entspricht also an jedem Punkt den Abstand zum Interface, während das Vorzeichen die Seite darstellt.
+
+\[ \frac{\partial\phi}{\partial t} +  \vect u \cdot \nabla\phi = 0\]
 
 \section{Diskretisierung}
 
+%
+%
 \subsection{Standard-Galerkin FEM}
+
+%
+%
 \subsection{eXtended Finite Element Method}
 \subsection{Zeitintegration}
 
-\bibliography{bibData}
+\chapter{Schnittalgorithmus}
+
+In BACI sind bereits zwei verschiedene Schnittalgorithmen implementiert. Der gewünschte Algorithmus kann über den Parameter 
+
+\section{Vorhandene Algorithmen}
+\subsection{Tetgen}
+\subsection{Hexahedra}
+
+\section{Implementierter Algorithmus}
+\subsection{Zerlegung in Tetraeder}
+\subsection{Schnittfälle}
+\subsection{Verbesserungsmöglichkeiten}
+
+\chapter{Ergebnisse}
+\section{Zalesaks-Disk}
+\subsection{Massenverlust}
+\subsection{Geometrieerhaltung}
+
+\section{Collapsing Watercolumn}
+
+\chapter{Ausblick}
+
+\appendix
+
+\chapter{Code}
 
 \end{document}
 
