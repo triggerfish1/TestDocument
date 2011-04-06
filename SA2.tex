@@ -3,34 +3,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % text encoding
 %
-%For Macs use
-%    \usepackage[applemac]{inputenc}
-%For Unix Latin1 use
-    \usepackage[latin1]{inputenc}
-%For PC Codepage 850 use
-%    \usepackage[cp850]{inputenc}
-%For PC Codepage 437 use
-%    \usepackage[cp437]{inputenc}
-%For Windows ANSI use
-%    \usepackage[ansinew]{inputenc}
-%For Unicode use ???
-%    \usepackage[utf8]{inputenc}
-%\usepackage[applemac]{inputenc}
+
+\usepackage[latin1]{inputenc}
 
 \usepackage[T1]{fontenc}
-\usepackage{ngerman,a4wide}
+%\usepackage{ngerman,a4wide}
+\usepackage[ngerman]{babel}
 \usepackage{longtable}
 \usepackage{color,listings,multicol}
 \usepackage{float}
 \usepackage[format=hang]{caption}
-
-\newcommand{\vect}[1]{\boldsymbol{#1}}
-
 %usepackage[caption = false,format=hang]{subfig}
 \captionsetup[subfloat]{justification=RaggedRight}
 \usepackage[format=hang]{subfig}
 %\captionsetup{format=hang}
 \usepackage[numbers]{natbib}
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+%\newcommand{\vect}[1]{\vec{#1}}
+
 
 %für eps-Graphiken
 %\DeclareGraphicsExtensions{.png,.pdf,.jpg,.mps,.eps}
@@ -39,7 +32,7 @@
 %\bibliographystyle{natdin}  % put at beginning of document
 %\usepackage{epspdfconversion}
 %\usepackage{hyperref}
-\usepackage{fancyhdr}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -82,20 +75,17 @@
 \section{Navier-Stokes Gleichung}
 
 
-
 \subsection{Grundgleichung}
-% Navier-Stokes-Gleichung (Herleitung?)
+
 
 \subsection{Zweiphasenströmung und Oberflächenspannung}
 % Besonderheiten der Zweiphasenströmung (-> warum XFEM?)
 
-
 \section{Level-Set-Methode}
-Zur Beschreibung des Interfaces kann entweder die "'Interface Tracking'"- oder die "'Interface Capturing'"-Methode verwendet werden. Bei der Interface-Tracking-Methode wird das Interface explizit durch die Vernetzung beschrieben. Das Netz wird mit dem Interface weiterbewegt. Ein Problem dieser Methode ist, dass Topologie-Änderungen wie z.B. das Rekombinieren von zwei Blasen zu einer Größeren nicht dargestellt werden können.\\
+Zur Beschreibung des Interfaces kann entweder die Interface Tracking- oder die Interface Capturing-Methode verwendet werden. Bei der Interface-Tracking-Methode wird das Interface explizit durch die Vernetzung beschrieben. Das Netz wird mit dem Interface weiterbewegt. Ein Problem dieser Methode ist, dass Topologie-Änderungen wie z.B. das Rekombinieren von zwei Blasen zu einer Größeren nicht dargestellt werden können.\\
 
-Beim "Interface Capturing" hingegen wird das Interface implizit beschrieben. Im vorliegenden Fall wird die Level-Set-Methode verfolgt, bei der das Interface durch die Null-Iso-Linie der Level-Set-Funktion beschrieben wird. Zusätzlich erfüllt die Level-Set-Funktion zusätzlich die "signed distance property", der Betrag der Funktion entspricht also an jedem Punkt den Abstand zum Interface, während das Vorzeichen die Seite darstellt.
 
-\[ \frac{\partial\phi}{\partial t} +  \vect u \cdot \nabla\phi = 0\]
+\[\frac{\partial\phi}{\partial t} +  \vect u \cdot \nabla\phi = 0\]
 
 \section{Diskretisierung}
 
