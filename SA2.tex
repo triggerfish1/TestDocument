@@ -42,7 +42,7 @@
 
 \author{Markus Sons}
 
-\title{Implementierung eines Schnitt-Algorithmus für die Level-Set-Methode und Untersuchung der kollabierenden Wassersäule mit XFEM}
+\title{Schnittalgorithmus für XFEM mit der Level-Set-Methode}
 \date{\today}
 
 \maketitle
@@ -69,20 +69,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Einleitung}
+% FEM hat Vorteile gegenüber FVM (Fehlerabschätzung)
+% Verbrennung / Mehrphasenströmung spezielle Anforderung -> Sprung/knick in p und u
+% Entweder sehr fein auflösen am Interface(früher), oder neue Ansatzfunktionen (XFEM)
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Grundlagen}
 
-\section{Navier-Stokes Gleichung}
-
+\section{Navier-Stokes Gleichungen}
 
 \subsection{Grundgleichung}
-
+Die Navier-Stokes-Gleichung 
 
 \subsection{Zweiphasenströmung und Oberflächenspannung}
 % Besonderheiten der Zweiphasenströmung (-> warum XFEM?)
 
-\section{Level-Set-Methode}
-Zur Beschreibung des Interfaces kann entweder die Interface Tracking- oder die Interface Capturing-Methode verwendet werden. Bei der Interface-Tracking-Methode wird das Interface explizit durch die Vernetzung beschrieben. Das Netz wird mit dem Interface weiterbewegt. Ein Problem dieser Methode ist, dass Topologie-Änderungen wie z.B. das Rekombinieren von zwei Blasen zu einer Größeren nicht dargestellt werden können.\\
+\section{Interface-Beschreibung}
+Zur Beschreibung des Interfaces kann entweder eine Interface Tracking- oder eine Interface Capturing-Methode verwendet werden. Bei der Interface-Tracking-Methode wird das Interface explizit durch die Vernetzung beschrieben. Das Netz wird mit dem Interface weiterbewegt. Ein Problem dieser Methode ist, dass Topologie-Änderungen wie z.B. das Rekombinieren von zwei Blasen zu einer Größeren nicht dargestellt werden können.\\
+
+Im vorliegenden Fall wird die Level-Set-Methode, eine Interface-Capturing-Methode genutzt.
+
+\subsection{Level-Set-Methode}
 
 
 \[\frac{\partial\phi}{\partial t} +  \vect u \cdot \nabla\phi = 0\]
@@ -98,7 +105,9 @@ Zur Beschreibung des Interfaces kann entweder die Interface Tracking- oder die I
 \subsection{eXtended Finite Element Method}
 \subsection{Zeitintegration}
 
-\chapter{Schnittalgorithmus}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Schnittalgorithmus}
 
 In BACI sind bereits zwei verschiedene Schnittalgorithmen implementiert. Der gewünschte Algorithmus kann über den Parameter 
 
@@ -111,12 +120,16 @@ In BACI sind bereits zwei verschiedene Schnittalgorithmen implementiert. Der gew
 \subsection{Schnittfälle}
 \subsection{Verbesserungsmöglichkeiten}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter{Ergebnisse}
 \section{Zalesaks-Disk}
 \subsection{Massenverlust}
 \subsection{Geometrieerhaltung}
 
 \section{Collapsing Watercolumn}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Ausblick}
 
